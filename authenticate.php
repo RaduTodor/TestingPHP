@@ -21,13 +21,18 @@ function authenticateUser(string $username, string $password, PDO $pdo)
             $_SESSION["last_name"]=$result["last_name"];
             $_SESSION["first_name"]=$result["first_name"];
             $_SESSION["gender"]=$result["gender"];
-            header("Location: edit.php");
+            return TRUE;
         }
-        else
-        {
-            header("Location: index.php");
-        }
-    }    
+    }
+    return FALSE;
 }
 
-authenticateUser($_POST["username"],$_POST["password"], $pdo);
+$authenticateSucceeded = authenticateUser($_POST["username"],$_POST["password"], $pdo);
+if($authenticateSucceeded)
+{
+    header("Location: edit.php");
+}
+else
+{
+    header("Location: index.php");
+}

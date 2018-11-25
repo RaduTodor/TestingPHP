@@ -1,11 +1,16 @@
+<?php
+            session_start();
+			if(!isset($_SESSION["username"]))
+			{
+				header("Location: index.php");
+			}
+?>
 <html>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link href="index.css" rel="stylesheet" id="bootstrap-css">
 <script src="index.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
 <div class="container">
     	<div class="row">
 			<div class="col-md-6 col-md-offset-3">
@@ -13,10 +18,19 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
+							<form id="logOut-form" action="logOut.php" method="post" role="form" style="display: block;">
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-3 col-sm-offset-10">
+												<input type="submit" name="logOut-submit" id="logOut-submit" tabindex="13" class="form-control btn btn-logOut" value="Log Out">
+											</div>
+										</div>
+									</div>
+								</form>
 								<form id="edit-form" action="editProfile.php" method="post" role="form" style="display: block;">
                                     <label for="username">Username</label>
 									<div class="form-group">
-										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value=<?php session_start(); echo $_SESSION["username"];?>>
+										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value=<?php echo $_SESSION["username"];?>>
 									</div>
                                     <label for="email">Email</label>
                                     <div class="form-group">
@@ -36,14 +50,38 @@
 									</div>
                                     <label for="gender">Gender</label>
                                     <div class="form-group">
-                                            <input type="radio" name="gender" id="gender" value="male"> Male<br>
-                                            <input type="radio" name="gender" id="gender" value="female"> Female<br>
-                                            <input type="radio" name="gender" id="gender" value="other"> Other
+									<?php
+										if($_SESSION["gender"]=="male")
+										{
+											echo'<input type="radio" name="gender" id="gender" value="male" tabindex="6" checked> Male<br>';
+										}
+										else
+										{
+											echo'<input type="radio" name="gender" id="gender" value="male" tabindex="6"> Male<br>';
+										}
+										if($_SESSION["gender"]=="female")
+										{
+											echo'<input type="radio" name="gender" id="gender" value="female" tabindex="7" checked> Female<br>';
+										}
+										else
+										{
+                                            echo'<input type="radio" name="gender" id="gender" value="female" tabindex="7"> Female<br>';
+										}
+										if($_SESSION["gender"]=="other")
+										{
+											
+											echo'<input type="radio" name="gender" id="gender" value="other" tabindex="8" checked> Other';
+										}
+										else
+										{
+											echo'<input type="radio" name="gender" id="gender" value="other" tabindex="8"> Other';
+										}
+									?>
 									</div>
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="edit-submit" id="edit-submit" tabindex="7" class="form-control btn btn-edit" value="Save Profile">
+												<input type="submit" name="edit-submit" id="edit-submit" tabindex="9" class="form-control btn btn-edit" value="Save Profile">
 											</div>
 										</div>
 									</div>
@@ -51,25 +89,16 @@
                                 <form id="resetPassword-form" action="resetPassword.php" method="post" role="form" style="display: block;">
                                     <label for="password">Password</label>
 									<div class="form-group">
-										<input type="password" name="password" id="password" tabindex="1" class="form-control" placeholder="Password">
+										<input type="password" name="password" id="password" tabindex="10" minlength="5" class="form-control" placeholder="Password">
 									</div>
                                     <label for="confirm_password">Confirm Password</label>
                                     <div class="form-group">
-										<input type="password" name="confirm_password" id="confirm_password" tabindex="2" class="form-control" placeholder="Password">
+										<input type="password" name="confirm_password" id="confirm_password" tabindex="11" minlength="5" class="form-control" placeholder="Password">
 									</div>
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="resetPassword-submit" id="resetPassword-submit" tabindex="8" class="form-control btn btn-resetPassword" value="Reset Password">
-											</div>
-										</div>
-									</div>
-								</form>
-                                <form id="logOut-form" action="logOut.php" method="post" role="form" style="display: block;">
-									<div class="form-group">
-										<div class="row">
-											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="logOut-submit" id="logOut-submit" tabindex="9" class="form-control btn btn-logOut" value="Log Out">
+												<input type="submit" name="resetPassword-submit" id="resetPassword-submit" tabindex="12" class="form-control btn btn-resetPassword" value="Reset Password">
 											</div>
 										</div>
 									</div>

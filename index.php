@@ -1,3 +1,6 @@
+<?php
+require_once "logOut.php";
+?>
 <html>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
@@ -44,10 +47,10 @@
 										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
 									</div>
 									<div class="form-group">
-										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+										<input type="email" name="email" id="email" tabindex="2" class="form-control" placeholder="Email Address" value="">
 									</div>
 									<div class="form-group">
-										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+										<input type="password" name="password" id="password" tabindex="3" minlength="5" class="form-control" placeholder="Password">
 									</div>
 									<div class="form-group">
 										<div class="row">

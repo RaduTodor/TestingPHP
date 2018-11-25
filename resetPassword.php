@@ -15,8 +15,8 @@ function resetPassword(string $password, string $confirm_password, PDO $pdo)
         if ($status === false) {
             trigger_error($stmt->error, E_USER_ERROR);
         }
-    }
-    
+    } 
 }
 
 resetPassword($_POST["password"],$_POST["confirm_password"], $pdo);
+header("Location: edit.php");

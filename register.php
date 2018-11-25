@@ -12,3 +12,4 @@ function registerUserInDb(string $username, string $password, string $email, PDO
 }
 
 registerUserInDb($_POST["username"],$_POST["password"],$_POST["email"], $pdo);
+require_once "authenticate.php";
