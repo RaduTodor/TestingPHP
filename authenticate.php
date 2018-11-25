@@ -2,7 +2,6 @@
 
 require_once "db.php";
 
-
 function authenticateUser(string $username, string $password, PDO $pdo)
 {
     $sql="SELECT * FROM users WHERE username = (?)";
@@ -30,9 +29,9 @@ function authenticateUser(string $username, string $password, PDO $pdo)
 $authenticateSucceeded = authenticateUser($_POST["username"],$_POST["password"], $pdo);
 if($authenticateSucceeded)
 {
-    header("Location: edit.php");
+    header("Location: index.php");
 }
 else
 {
-    header("Location: index.php");
+    header("Location: login.php");
 }
