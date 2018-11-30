@@ -1,4 +1,0 @@
-<?php
-$config = [
-"env" => "dev",
-];
