@@ -2,9 +2,10 @@
 session_start();
 if(!isset($_SESSION["username"]))
 {
-	header("Location: login.php");
+	header("Location: loginPage.php");
 }
 ?>
+
 <html>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
@@ -18,7 +19,7 @@ if(!isset($_SESSION["username"]))
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="edit-form" action="edit.php" method="get" role="form" style="display: block;">
+								<form id="edit-form" action="editPage.php" method="get" role="form" style="display: block;">
 									<?php
 									if(isset($_SESSION["username"]))
 									{
@@ -42,7 +43,7 @@ if(!isset($_SESSION["username"]))
 										</div>
 									</div>
 								</form>
-								<form id="login-form" action="login.php" method="get" role="form" style="display: block;">
+								<form id="login-form" action="loginPage.php" method="get" role="form" style="display: block;">
 								<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">

@@ -25,13 +25,3 @@ function authenticateUser(string $username, string $password, PDO $pdo)
     }
     return FALSE;
 }
-
-$authenticateSucceeded = authenticateUser($_POST["username"],$_POST["password"], $pdo);
-if($authenticateSucceeded)
-{
-    header("Location: index.php");
-}
-else
-{
-    header("Location: login.php");
-}
