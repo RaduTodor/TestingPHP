@@ -37,8 +37,7 @@ class Router
         $controllerName = $routes[$url]['controller'];
         $action = $routes[$url]['action'];
 
-        require_once '../app/controllers/' . $controllerName . '.php';
-
-        $controller = new $controllerName();
+        $class = "\App\Controllers\\" . $controllerName;
+        $controller = new $class();
     }
 }
