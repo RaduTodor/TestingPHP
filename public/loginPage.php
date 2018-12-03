@@ -1,6 +1,3 @@
-<?php
-require_once "logOut.php";
-?>
 <html>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
@@ -26,7 +23,7 @@ require_once "logOut.php";
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="login-form" action="authenticate.php" method="post" role="form" style="display: block;">
+								<form id="login-form" action="authenticateCall.php" method="post" role="form" style="display: block;">
 									<div class="form-group">
 										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
 									</div>
@@ -41,7 +38,7 @@ require_once "logOut.php";
 										</div>
 									</div>
 								</form>
-								<form id="register-form" action="register.php" method="post" role="form" style="display: none;">
+								<form id="register-form" action="registerCall.php" method="post" role="form" style="display: none;">
 									<div class="form-group">
 										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
 									</div>

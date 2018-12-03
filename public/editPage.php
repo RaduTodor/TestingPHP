@@ -1,9 +1,9 @@
 <?php
-            session_start();
-			if(!isset($_SESSION["username"]))
-			{
-				header("Location: login.php");
-			}
+	session_start();
+	if(!isset($_SESSION["username"]))
+	{
+		header("Location: loginPage.php");
+	}
 ?>
 <html>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -18,7 +18,7 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-							<form id="logOut-form" action="logOut.php" method="post" role="form" style="display: block;">
+							<form id="logOut-form" action="logOutCall.php" method="post" role="form" style="display: block;">
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-3 col-sm-offset-10">
@@ -27,7 +27,7 @@
 										</div>
 									</div>
 								</form>
-								<form id="edit-form" action="editProfile.php" method="post" role="form" style="display: block;">
+								<form id="edit-form" action="editCall.php" method="post" role="form" style="display: block;">
                                     <label for="username">Username</label>
 									<div class="form-group">
 										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value=<?php echo $_SESSION["username"];?>>
@@ -86,7 +86,7 @@
 										</div>
 									</div>
 								</form>
-                                <form id="resetPassword-form" action="resetPassword.php" method="post" role="form" style="display: block;">
+                                <form id="resetPassword-form" action="resetPasswordCall.php" method="post" role="form" style="display: block;">
                                     <label for="password">Password</label>
 									<div class="form-group">
 										<input type="password" name="password" id="password" tabindex="10" minlength="5" class="form-control" placeholder="Password">
