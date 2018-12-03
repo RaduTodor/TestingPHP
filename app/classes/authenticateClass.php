@@ -2,9 +2,9 @@
 namespace App\classes;
 
 class AuthenticateClass { 
-    public $username; 
-    public $password;
-    public $pdo;
+    private $username; 
+    private $password;
+    private $pdo;
 
     function __CONSTRUCT(string $username, string $password, PDO $pdo)
     {

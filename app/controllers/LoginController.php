@@ -4,18 +4,24 @@ namespace App\controllers;
 use \App\classes\AuthenticateClass;
 use \App\classes\LogOutClass;
 use \App\classes\RegisterClass;
-
-require_once "db.php";
+use \App\classes\DatabaseConnection;
 
 class LoginController
 {
+    private $pdo;
+
+    function __CONSTRUCT()
+    {
+        $databaseConnectionInstance = new DatabaseConnection(); 
+        $pdo = $databaseConnectionInstance->CreateDatabaseConnection();
+    }
     public function loginPageAction(array $params, array $query) {
         echo file_get_contents(__DIR__."\..\htmls\loginPage.php");
         // /login
     }
 
     public function loginAuthAction(array $params, array $query) {
-        $authenticateInstance = new AuthenticateClass($params["username"],$params["password"],$pdo);
+        $authenticateInstance = new AuthenticateClass($params["username"],$params["password"],$this->pdo);
         $authenticateSucceeded = $authenticateInstance->authenticateUser();
         if($authenticateSucceeded)
         {
@@ -35,7 +41,7 @@ class LoginController
     }
 
     public function registerAction(array $params, array $query) {
-        $registerInstance = new RegisterClass($params["username"],$params["password"],$params["email"],$pdo);
+        $registerInstance = new RegisterClass($params["username"],$params["password"],$params["email"],$this->pdo);
         $registerInstance->registerUserInDb();
         header("Location: /login/auth");
         // /register
