@@ -1,6 +1,7 @@
 <?php
 
 $static_routes = [
+    # every route path should end with a slash
     null                    => ['controller' => 'NotFoundController',
                                 'action'     => 'notFoundAction'],
     '/'                     => ['controller' => 'IndexController',
