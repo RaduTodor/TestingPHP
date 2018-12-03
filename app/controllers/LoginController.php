@@ -13,10 +13,10 @@ class LoginController
     function __CONSTRUCT()
     {
         $databaseConnectionInstance = new DatabaseConnection(); 
-        $pdo = $databaseConnectionInstance->CreateDatabaseConnection();
+        $this->pdo = $databaseConnectionInstance->CreateDatabaseConnection();
     }
     public function loginPageAction(array $params, array $query) {
-        echo file_get_contents(__DIR__."\..\htmls\loginPage.php");
+        include(__DIR__."\..\htmls\loginPage.php");
         // /login
     }
 
@@ -43,7 +43,7 @@ class LoginController
     public function registerAction(array $params, array $query) {
         $registerInstance = new RegisterClass($params["username"],$params["password"],$params["email"],$this->pdo);
         $registerInstance->registerUserInDb();
-        header("Location: /login/auth");
+        $registerInstance->callAutoLogin();
         // /register
     }
 }

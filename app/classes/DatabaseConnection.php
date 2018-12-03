@@ -14,7 +14,7 @@ Class DatabaseConnection{
         $username="root";
         $pass="";
         try{
-        $pdo = new PDO($dsn,$username,$pass,$options);
+            $pdo = new PDO($dsn,$username,$pass,$options);
         }
         catch(PDOException $e){
             throw new PDOException($e->getMessage(), $e->getCode());

@@ -1,5 +1,6 @@
 <?php
 namespace App\classes;
+use PDO;
 
 class AuthenticateClass { 
     private $username; 
@@ -12,24 +13,7 @@ class AuthenticateClass {
         $this->password = $password;
         $this->pdo = $pdo;
     }
-      
-    function authenticateUser()
-    {
-        $sql="SELECT * FROM users WHERE username = (?)";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$this->username]);
-        $result = $stmt->fetch();
-        if($result!=null)
-        {
-            if(password_verify($this->password, $result["password"]))
-            {
-                initializeSession($result);
-                return TRUE;
-            }
-        }
-        return FALSE;
-    }
-    
+
     function initializeSession(array $result)
     {
         session_start();
@@ -40,5 +24,22 @@ class AuthenticateClass {
         $_SESSION["last_name"]=$result["last_name"];
         $_SESSION["first_name"]=$result["first_name"];
         $_SESSION["gender"]=$result["gender"];
+    }
+
+    function authenticateUser()
+    {
+        $sql="SELECT * FROM users WHERE username = (?)";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$this->username]);
+        $result = $stmt->fetch();
+        if($result!=null)
+        {
+            if(password_verify($this->password, $result["password"]))
+            {
+                $this->initializeSession($result);
+                return TRUE;
+            }
+        }
+        return FALSE;
     }
 } 
