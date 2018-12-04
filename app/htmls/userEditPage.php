@@ -66,21 +66,21 @@
                                     <label for="gender">Gender</label>
                                     <div class="form-group">
 									<?php if($_SESSION["gender"]=="male") :?>
-                                        <input type="radio" name="gender" id="gender" value="male" tabindex="6" checked> Male<br>
+                                        <input type="radio" name="gender" id="genderMale" value="male" tabindex="6" checked> Male<br>
 									<?php else :?>
-                                        <input type="radio" name="gender" id="gender" value="male" tabindex="6"> Male<br>
+                                        <input type="radio" name="gender" id="genderMale" value="male" tabindex="6"> Male<br>
                                     <?php endif; ?>
 
 									<?php if($_SESSION["gender"]=="female") :?>
-											<input type="radio" name="gender" id="gender" value="female" tabindex="7" checked> Female<br>
+											<input type="radio" name="gender" id="genderFemale" value="female" tabindex="7" checked> Female<br>
 										<?php else :?>
-                                            <input type="radio" name="gender" id="gender" value="female" tabindex="7"> Female<br>
+                                            <input type="radio" name="gender" id="genderFemale" value="female" tabindex="7"> Female<br>
                                     <?php endif; ?>
 
-									<?php if($_SESSION["gender"]=="other") :?>
-										<input type="radio" name="gender" id="gender" value="other" tabindex="8" checked> Other
+									<?php if($_SESSION["gender"]=="other" || $_SESSION["gender"]==NULL) :?>
+										<input type="radio" name="gender" id="genderOther" value="other" tabindex="8" checked> Other
 									<?php else :?>
-										<input type="radio" name="gender" id="gender" value="other" tabindex="8"> Other
+										<input type="radio" name="gender" id="genderOther" value="other" tabindex="8"> Other
 									<?php endif; ?>
 											
 									</div>

@@ -26,10 +26,10 @@
 							<div class="col-lg-12">
 								<form id="login-form" action="/login/auth" method="post" role="form" style="display: block;">
 									<div class="form-group">
-										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+										<input type="text" name="username" id="authUsername" tabindex="1" class="form-control" placeholder="Username" value="">
 									</div>
 									<div class="form-group">
-										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+										<input type="password" name="password" id="authPassword" tabindex="2" class="form-control" placeholder="Password">
 									</div>
 									<div class="form-group">
 										<div class="row">
@@ -41,13 +41,13 @@
 								</form>
 								<form id="register-form" action="/register" method="post" role="form" style="display: none;">
 									<div class="form-group">
-										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+										<input type="text" name="username" id="registerUsername" tabindex="1" class="form-control" placeholder="Username" value="">
 									</div>
 									<div class="form-group">
-										<input type="email" name="email" id="email" tabindex="2" class="form-control" placeholder="Email Address" value="">
+										<input type="email" name="email" id="registerEmail" tabindex="2" class="form-control" placeholder="Email Address" value="">
 									</div>
 									<div class="form-group">
-										<input type="password" name="password" id="password" tabindex="3" minlength="5" class="form-control" placeholder="Password">
+										<input type="password" name="password" id="registerPassword" tabindex="3" minlength="5" class="form-control" placeholder="Password">
 									</div>
 									<div class="form-group">
 										<div class="row">
