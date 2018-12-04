@@ -13,12 +13,56 @@
 							<div class="col-lg-12">
 								<form id="edit-form" action="/user/edit" method="get" role="form" style="display: block;">
 									<?php session_start(); if(isset($_SESSION["username"])) :?>
-                                        <label for="username">Username <?=$_SESSION["username"]?></label> <br>
-                                        <label for="email">Email <?=$_SESSION["email"]?></label> <br>
-                                        <label for="birth_date">Birth Date <?=$_SESSION["birth_date"]?></label><br>
-									    <label for="first_name">First Name <?=$_SESSION["first_name"]?></label><br>
-									    <label for="last_name">Last Name <?=$_SESSION["last_name"]?></label><br>
-									    <label for="gender">Gender <?=$_SESSION["gender"]?></label><br>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <label for="username">Username:</label>
+                                            </td>
+                                            <td>
+                                                <label for="username"><?=$_SESSION["username"]?></label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="email">Email:</label>
+                                            </td>
+                                            <td>
+                                                <label for="email"><?=$_SESSION["email"]?></label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="birth_date">Birth Date:</label>
+                                            </td>
+                                            <td>
+                                                <label for="birth_date"><?=$_SESSION["birth_date"]?></label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="first_name">First Name:</label>
+                                            </td>
+                                            <td>
+                                                <label for="first_name"><?=$_SESSION["first_name"]?></label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="last_name">Last Name:</label>
+                                            </td>
+                                            <td>
+                                                <label for="last_name"><?=$_SESSION["last_name"]?></label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="gender">Gender:</label>
+                                            </td>
+                                            <td>
+                                                <label for="gender"><?=$_SESSION["gender"]?></label>
+                                            </td>
+                                        </tr>
+                                    </table>
                                     <?php else :?>
 										<label for="notLogged">YOU ARE NOT LOGGED IN</label><br>
                                     <?php endif; ?>
