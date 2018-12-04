@@ -22,15 +22,8 @@ class LoginController
 
     public function loginAuthAction(array $params, array $query) {
         $authenticateInstance = new AuthenticateClass($params["username"],$params["password"],$this->pdo);
-        $authenticateSucceeded = $authenticateInstance->authenticateUser();
-        if($authenticateSucceeded)
-        {
-            header("Location: /");
-        }
-        else
-        {
-            header("Location: /login");
-        }
+        $authentificationResult = $authenticateInstance->authenticateUser();
+        $authenticateInstance->redirectAuthenticationForm($authentificationResult);
         // /login/auth
     }
 

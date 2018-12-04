@@ -32,7 +32,7 @@ class AuthenticateClass {
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$this->username]);
         $result = $stmt->fetch();
-        if($result!=null)
+        if($result)
         {
             if(password_verify($this->password, $result["password"]))
             {
@@ -41,5 +41,17 @@ class AuthenticateClass {
             }
         }
         return FALSE;
+    }
+
+    function redirectAuthenticationForm(bool $authenticateResult)
+    {
+        if($authenticateResult)
+        {
+            header("Location: /");
+        }
+        else
+        {
+            header("Location: /login");
+        }
     }
 } 

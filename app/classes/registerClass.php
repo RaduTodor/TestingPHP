@@ -1,6 +1,7 @@
 <?php
 namespace App\classes;
 use PDO;
+use \App\classes\AuthenticateClass;
 
 class RegisterClass { 
     private $username; 
@@ -19,27 +20,15 @@ class RegisterClass {
     function registerUserInDb()
     {
         $sql="INSERT INTO `users` (email,password,username) VALUES(?,?,?)";
-        $this->password=password_hash($this->password,PASSWORD_DEFAULT);
+        $hashedPassword=password_hash($this->password,PASSWORD_DEFAULT);
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$this->email,$this->password,$this->username]);
+        $stmt->execute([$this->email,$hashedPassword,$this->username]);
     }
 
     function callAutoLogin()
     {
-        $data = array(
-            'username' => $this->username,
-            'password' => $this->password
-        );
-        $url = '/login/auth';
-        $ch = curl_init($url);
-        # Form data string
-        $postString = http_build_query($data, '', '&');
-        # Setting our options
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        # Get the response
-        $response = curl_exec($ch);
-        curl_close($ch);
+        $authenticateInstance = new AuthenticateClass($this->username,$this->password,$this->pdo);
+        $authenticationResult = $authenticateInstance->authenticateUser();
+        $authenticateInstance->redirectAuthenticationForm($authenticationResult);
     }
 }
