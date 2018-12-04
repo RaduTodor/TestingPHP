@@ -12,7 +12,7 @@
 		var confirmed_Password = document.forms["resetPassword-form"]["confirm_password"].value;
 		if(password == confirmed_Password)
 		{
-			alert("Password has been reseted!");
+			alert("Password has been reset!");
 		}
 		else
 		{
@@ -45,7 +45,7 @@
 								<form id="edit-form" action="/user/save" method="post" role="form" style="display: block;">
                                     <label for="username">Username</label>
 									<div class="form-group">
-										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value=<?php session_start(); echo $_SESSION["username"];?>>
+										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value=<?php echo $_SESSION["username"];?>>
 									</div>
                                     <label for="email">Email</label>
                                     <div class="form-group">

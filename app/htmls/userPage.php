@@ -13,8 +13,7 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="edit-form" action="/user/edit" method="get" role="form" style="display: block;">
-									<?php session_start(); if(isset($_SESSION["username"])) :?>
+								<form id="edit-form" action="/user/edit" method="post" role="form" style="display: block;">
                                     <table>
                                         <tr>
                                             <td>
@@ -65,9 +64,6 @@
                                             </td>
                                         </tr>
                                     </table>
-                                    <?php else :?>
-										<label for="notLogged">YOU ARE NOT LOGGED IN</label><br>
-                                    <?php endif; ?>
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
@@ -76,7 +72,7 @@
 										</div>
 									</div>
 								</form>
-								<form id="login-form" action="/login" method="get" role="form" style="display: block;">
+								<form id="login-form" action="/login" method="post" role="form" style="display: block;">
 								<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
