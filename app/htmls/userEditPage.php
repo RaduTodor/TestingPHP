@@ -4,7 +4,7 @@
 <script src="/js/bootstrap.min.js"></script>
 <link href="/css/index.css" id="bootstrap-css" type="text/css">
 <script src="/js/index.js"></script>
-<<<<<<< HEAD
+
 <script>
   	function resetPassword() {
 		var password = document.forms["resetPassword-form"]["password"].value;
@@ -24,9 +24,7 @@
 		alert("Your changes have been saved!");
 	}
 </script>
-=======
 
->>>>>>> a512162094c4d88749fec4c84a8de8a73a616530
 <div class="container">
     	<div class="row">
 			<div class="col-md-6 col-md-offset-3">
