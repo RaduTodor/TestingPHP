@@ -1,9 +1,9 @@
-<html>
-<link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.min.js"></script>
-<link href="css/index.css" rel="stylesheet" id="bootstrap-css">
-<script src="js/index.js"></script>
+<html lang="en">
+<script src="/js/jquery.min.js"></script>
+<link href="/css/bootstrap.min.css" id="bootstrap-css" type="text/css">
+<script src="/js/bootstrap.min.js"></script>
+<link href="/css/index.css" id="bootstrap-css" type="text/css">
+<script src="/js/index.js"></script>
 <<<<<<< HEAD
 <script>
   	function resetPassword() {
