@@ -13,14 +13,14 @@
 							<div class="col-lg-12">
 								<form id="edit-form" action="/user/edit" method="get" role="form" style="display: block;">
 									<?php session_start(); if(isset($_SESSION["username"])) :?>
-                                        <label for="username">Username <?=$_SESSION["username"]?></label>
-                                        <label for="email">Email <?=$_SESSION["email"]?></label>
-                                        <label for="birth_date">Birth Date <?=$_SESSION["birth_date"]?></label>
-									    <label for="first_name">First Name <?=$_SESSION["first_name"]?></label>
-									    <label for="last_name">Last Name <?=$_SESSION["last_name"]?></label>
-									    <label for="gender">Gender <?=$_SESSION["gender"]?></label>
+                                        <label for="username">Username <?=$_SESSION["username"]?></label> <br>
+                                        <label for="email">Email <?=$_SESSION["email"]?></label> <br>
+                                        <label for="birth_date">Birth Date <?=$_SESSION["birth_date"]?></label><br>
+									    <label for="first_name">First Name <?=$_SESSION["first_name"]?></label><br>
+									    <label for="last_name">Last Name <?=$_SESSION["last_name"]?></label><br>
+									    <label for="gender">Gender <?=$_SESSION["gender"]?></label><br>
                                     <?php else :?>
-										<label for="notLogged">YOU ARE NOT LOGGED IN</label>
+										<label for="notLogged">YOU ARE NOT LOGGED IN</label><br>
                                     <?php endif; ?>
 									<div class="form-group">
 										<div class="row">
