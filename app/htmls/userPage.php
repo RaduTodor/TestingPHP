@@ -12,22 +12,16 @@
 						<div class="row">
 							<div class="col-lg-12">
 								<form id="edit-form" action="/user/edit" method="get" role="form" style="display: block;">
-									<?php
-                                    session_start();
-									if(isset($_SESSION["username"]))
-									{
-                                    echo '<label for="username">Username'.$_SESSION["username"].'</label>';
-									echo '<label for="email">Email'.$_SESSION["email"].'</label>';
-									echo '<label for="birth_date">Birth Date'.$_SESSION["birth_date"].'</label>';
-									echo '<label for="first_name">First Name'.$_SESSION["first_name"].'</label>';
-									echo '<label for="last_name">Last Name'.$_SESSION["last_name"].'</label>';
-									echo '<label for="gender">Gender'.$_SESSION["gender"].'</label>';
-									}
-									else
-									{
-										echo '<label for="notLogged">YOU ARE NOT LOGGED IN</label>';	
-									}
-									?>
+									<?php session_start(); if(isset($_SESSION["username"])) :?>
+                                        <label for="username">Username <?=$_SESSION["username"]?></label>
+                                        <label for="email">Email <?=$_SESSION["email"]?></label>
+                                        <label for="birth_date">Birth Date <?=$_SESSION["birth_date"]?></label>
+									    <label for="first_name">First Name <?=$_SESSION["first_name"]?></label>
+									    <label for="last_name">Last Name <?=$_SESSION["last_name"]?></label>
+									    <label for="gender">Gender <?=$_SESSION["gender"]?></label>
+                                    <?php else :?>
+										<label for="notLogged">YOU ARE NOT LOGGED IN</label>
+                                    <?php endif; ?>
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">

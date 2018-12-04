@@ -43,33 +43,23 @@
 									</div>
                                     <label for="gender">Gender</label>
                                     <div class="form-group">
-									<?php
-										if($_SESSION["gender"]=="male")
-										{
-											echo'<input type="radio" name="gender" id="gender" value="male" tabindex="6" checked> Male<br>';
-										}
-										else
-										{
-											echo'<input type="radio" name="gender" id="gender" value="male" tabindex="6"> Male<br>';
-										}
-										if($_SESSION["gender"]=="female")
-										{
-											echo'<input type="radio" name="gender" id="gender" value="female" tabindex="7" checked> Female<br>';
-										}
-										else
-										{
-                                            echo'<input type="radio" name="gender" id="gender" value="female" tabindex="7"> Female<br>';
-										}
-										if($_SESSION["gender"]=="other")
-										{
-											
-											echo'<input type="radio" name="gender" id="gender" value="other" tabindex="8" checked> Other';
-										}
-										else
-										{
-											echo'<input type="radio" name="gender" id="gender" value="other" tabindex="8"> Other';
-										}
-									?>
+									<?php if($_SESSION["gender"]=="male") :?>
+                                        <input type="radio" name="gender" id="gender" value="male" tabindex="6" checked>Male<br>
+									<?php else :?>
+                                        <input type="radio" name="gender" id="gender" value="male" tabindex="6"> Male<br>
+
+                                        <?php if($_SESSION["gender"]=="female") :?>
+											<input type="radio" name="gender" id="gender" value="female" tabindex="7" checked> Female<br>
+										<?php else :?>
+                                            <input type="radio" name="gender" id="gender" value="female" tabindex="7"> Female<br>
+
+                                            <?php if($_SESSION["gender"]=="other") :?>
+											    <input type="radio" name="gender" id="gender" value="other" tabindex="8" checked> Other
+										    <?php else :?>
+											    <input type="radio" name="gender" id="gender" value="other" tabindex="8"> Other
+                                            <?php endif; ?>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
 									</div>
 									<div class="form-group">
 										<div class="row">
