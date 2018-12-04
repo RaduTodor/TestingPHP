@@ -22,6 +22,9 @@ class ResetPassword {
             if ($status === false) {
                 trigger_error($stmt->error, E_USER_ERROR);
             }
-        } 
+
+        }
+        $message = "wrong answer";
+        echo "<script type='text/javascript'>alert('$message');</script>";
     }
 }

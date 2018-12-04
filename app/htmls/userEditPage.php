@@ -4,6 +4,25 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link href="css/index.css" rel="stylesheet" id="bootstrap-css">
 <script src="js/index.js"></script>
+<script>
+  	function resetPassword() {
+		var password = document.forms["resetPassword-form"]["password"].value;
+		var confirmed_Password = document.forms["resetPassword-form"]["confirm_password"].value;
+		if(password == confirmed_Password)
+		{
+			alert("Password has been reseted!");
+		}
+		else
+		{
+			alert("Passwords don't match!");
+		}
+	}
+
+	function saveEditChanges()
+	{
+		alert("Your changes have been saved!");
+	}
+</script>
 <div class="container">
     	<div class="row">
 			<div class="col-md-6 col-md-offset-3">
@@ -65,7 +84,7 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="edit-submit" id="edit-submit" tabindex="9" class="form-control btn btn-edit" value="Save Profile">
+												<input type="submit" onclick="saveEditChanges()" name="edit-submit" id="edit-submit" tabindex="9" class="form-control btn btn-edit" value="Save Profile">
 											</div>
 										</div>
 									</div>
@@ -82,7 +101,7 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="resetPassword-submit" id="resetPassword-submit" tabindex="12" class="form-control btn btn-resetPassword" value="Reset Password">
+												<input type="submit" onclick="resetPassword()" name="resetPassword-submit" id="resetPassword-submit" tabindex="12" class="form-control btn btn-resetPassword" value="Reset Password">
 											</div>
 										</div>
 									</div>
