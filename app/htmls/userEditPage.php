@@ -1,8 +1,9 @@
 <html lang="en">
-<script src="/js/jquery.min.js"></script>
-<link href="/css/bootstrap.min.css" id="bootstrap-css" type="text/css">
+
+<link href="/css/bootstrap.min.css" id="bootstrap-css" rel="stylesheet" type="text/css">
 <script src="/js/bootstrap.min.js"></script>
-<link href="/css/index.css" id="bootstrap-css" type="text/css">
+<script src="/js/jquery.min.js"></script>
+<link href="/css/index.css" id="index-css" rel="stylesheet" type="text/css">
 <script src="/js/index.js"></script>
 
 <script>
