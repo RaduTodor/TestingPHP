@@ -6,16 +6,16 @@ class EditClass {
 
     private $pdo;
 
-    function __CONSTRUCT(string $username, string $password, PDO $pdo)
+    function __CONSTRUCT(PDO $pdo)
     {
         $this->pdo = $pdo;
     }
 
-    function editProfile(string $username, string $email, string $birth_date, string $first_name, string $last_name, string $gender, PDO $pdo)
+    function editProfile(string $username, string $email, string $birth_date, string $first_name, string $last_name, string $gender)
     {   
         session_start();
         $sql="UPDATE `users` SET `username` = (?), `email` = (?), `birth_date` = (?),`first_name` = (?),`last_name` = (?),`gender` = (?) WHERE `id` = (?)";
-        $stmt = $pdo->prepare($sql);
+        $stmt = $this->pdo->prepare($sql);
         $status = $stmt->execute([$username,$email,$birth_date,$first_name,$last_name,$gender,$_SESSION["id"]]);
         if ($status === false) {
             trigger_error($stmt->error, E_USER_ERROR);

@@ -26,8 +26,8 @@ class UserController
     }
 
     public function userSaveAction(array $params, array $query) {
-        $editInstance = new EditClass();
-        $editInstance->editProfile($params["username"],$params["email"],$params["birth_date"],$params["first_name"],$params["last_name"],$params["gender"], $this->pdo);
+        $editInstance = new EditClass($this->pdo);
+        $editInstance->editProfile($params["username"],$params["email"],$params["birth_date"],$params["first_name"],$params["last_name"],$params["gender"]);
         header("Location: /user/edit");
         // /user/save
     }
