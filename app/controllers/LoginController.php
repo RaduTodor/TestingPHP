@@ -1,8 +1,9 @@
 <?php
 
 namespace App\controllers;
+
 use \App\classes\AuthenticateClass;
-use \App\classes\LogOutClass;
+use \App\classes\LogoutClass;
 use \App\classes\RegisterClass;
 use \App\classes\DatabaseConnection;
 
@@ -16,7 +17,7 @@ class LoginController
         $this->pdo = $databaseConnectionInstance->CreateDatabaseConnection();
     }
     public function loginPageAction(array $params, array $query) {
-        include(__DIR__."\..\htmls\loginPage.php");
+        include(__DIR__ . "\..\htmls\loginpage.phtml");
         // /login
     }
 
@@ -28,7 +29,7 @@ class LoginController
     }
 
     public function logoutAction(array $params, array $query) {
-        $logOutInstance = new logOutClass();
+        $logOutInstance = new LogoutClass();
         $logOutInstance->logout();
         // /logout
     }

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\controllers;
+
 use \App\classes\EditClass;
 use \App\classes\ResetPassword;
 use \App\classes\DatabaseConnection;
@@ -16,12 +17,12 @@ class UserController
     }
 
     public function userPageAction(array $params, array $query) {
-         include(__DIR__."\..\htmls\userPage.php");
+         include(__DIR__ . "\..\htmls\userpage.phtml");
         // /user
     }
 
     public function userEditAction(array $params, array $query) {
-         include(__DIR__."\..\htmls\userEditPage.php");
+         include(__DIR__ . "\..\htmls\usereditpage.phtml");
         // /user/edit
     }
 

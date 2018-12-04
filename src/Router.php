@@ -2,7 +2,6 @@
 
 namespace Framework;
 
-
 class Router
 {
     public function route(array $static_routes, ?string $url, ?string $query) {

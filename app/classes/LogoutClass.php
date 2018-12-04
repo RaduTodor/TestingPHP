@@ -1,7 +1,8 @@
 <?php
+
 namespace App\classes;
 
-class LogOutClass {
+class LogoutClass {
 
     function logout()
     {

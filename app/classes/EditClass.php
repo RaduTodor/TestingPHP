@@ -1,5 +1,7 @@
 <?php
+
 namespace App\classes;
+
 use PDO;
 
 class EditClass { 
