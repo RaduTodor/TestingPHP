@@ -1,5 +1,7 @@
 <?php
+
 namespace App\classes;
+
 use PDO;
 use \App\classes\AuthenticateClass;
 

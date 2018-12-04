@@ -1,5 +1,7 @@
 <?php
+
 namespace App\classes;
+
 use PDO;
 
 class AuthenticateClass { 
@@ -54,4 +56,4 @@ class AuthenticateClass {
             header("Location: /login");
         }
     }
-} 
+}
