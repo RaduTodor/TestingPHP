@@ -1,42 +1,33 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Vlad
- * Date: 05-Dec-18
- * Time: 1:28 AM
- */
 
-use App\classes\DatabaseConnection;
+use Testing\DBTools;
+use Testing\TestTools;
 
 class RegisterFunctionalCest
 {
     public function testRegister(FunctionalTester $I)
     {
-        $randomInt = rand();
+        $dbConn = new DBTools();
+        $testTool = new TestTools();
+        if ($dbConn->isEmailPresent('test@test.com'))
+        {
+            $dbConn->deleteAccount('test@test.com');
+            //$testTool->clean('test@test.com');
+        }
 
         $I->amOnPage('/login');
         $I->submitForm('form#register-form',
-            [   'username' => 'codeception'.$randomInt,
-                'password' => 'password',
-                'email'    => 'a@a'.$randomInt.'com']);
+            ['username' => 'test',
+             'email'    => 'test@test.com',
+             'password' => 'password' ]);
 
         $I->seeCurrentUrlEquals('/user');
-        $I->see('codeception'.$randomInt);
-        $I->see('a@a'.$randomInt.'com');
+        $I->see('test');
+        $I->see('test@test.com');
 
         $I->click('login-submit');
 
-        $this->clearDB('a@a'.$randomInt.'com');
-    }
-
-    private function clearDB($email)
-    {
-        $dbConn = new DatabaseConnection();
-        $pdo = $dbConn->CreateDatabaseConnection();
-
-        $sql="DELETE FROM users WHERE email = (?)";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([$email]);
-        $stmt->fetch();
+        $dbConn->deleteAccount('test@test.com');
+        //$testTool->clean('test@test.com');
     }
 }

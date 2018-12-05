@@ -18,7 +18,6 @@ class ResetPassword {
         {
             $sql="UPDATE `users` SET `password` = (?) WHERE `id` = (?)";
             $stmt = $this->pdo->prepare($sql);
-            session_start();
             $password=password_hash($password,PASSWORD_DEFAULT);
             $status = $stmt->execute([$password,$_SESSION["id"]]);
             if ($status === false) {
