@@ -27,24 +27,22 @@ class RegisterClass
         $stmt->execute([$this->email]);
         $result = $stmt->fetch();
         if ($result) {
-            return FALSE;
+            return true;
         }
-        return TRUE;
+        return false;
     }
 
     function registerUserInDb()
     {
-        if ($this->checkEmailExists()) {
+        if ($this->checkEmailExists() == false)
+        {
             $sql = "INSERT INTO `users` (email,password,username) VALUES(?,?,?)";
             $hashedPassword = password_hash($this->password, PASSWORD_DEFAULT);
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute([$this->email, $hashedPassword, $this->username]);
             return TRUE;
         }
-        else
-        {
-            return FALSE;
-        }
+        return FALSE;
     }
 
     function callAutoLogin()
