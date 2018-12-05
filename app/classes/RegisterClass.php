@@ -49,7 +49,7 @@ class RegisterClass
 
     function callAutoLogin()
     {
-        $authenticateInstance = new AuthenticateClass($this->username, $this->password, $this->pdo);
+        $authenticateInstance = new AuthenticateClass($this->email, $this->password, $this->pdo);
         $authenticationResult = $authenticateInstance->authenticateUser();
         $authenticateInstance->redirectAuthenticationForm($authenticationResult);
     }
