@@ -15,7 +15,7 @@ class EditClass {
 
     function editProfile(string $username, string $email, string $birth_date, string $first_name, string $last_name, string $gender)
     {   
-        session_start();
+        //session_start();
         $sql="UPDATE `users` SET `username` = (?), `email` = (?), `birth_date` = (?),`first_name` = (?),`last_name` = (?),`gender` = (?) WHERE `id` = (?)";
         $stmt = $this->pdo->prepare($sql);
         $status = $stmt->execute([$username,$email,$birth_date,$first_name,$last_name,$gender,$_SESSION["id"]]);
