@@ -6,6 +6,18 @@
 <link href="/css/index.css" id="index-css" rel="stylesheet" type="text/css">
 <script src="/js/index.js"></script>
 
+<?php
+    if (isset($_SESSION['register_alert_message'])) {
+        echo ("<script>alert({$_SESSION['wrong_password_alert_message']})</script>");
+        unset($_SESSION['register_alert_message']);
+    }
+    
+    else if (isset($_SESSION['wrong_password_alert_message'])) {
+        echo ("<script>alert({$_SESSION['wrong_password_alert_message']})</script>");
+        unset($_SESSION['wrong_password_alert_message']);
+    }
+?>
+
 <div class="container">
     	<div class="row">
 			<div class="col-md-6 col-md-offset-3">
