@@ -15,13 +15,13 @@ class RegisterClassTest extends \Codeception\Test\Unit
     {
         $databaseInstance = new DatabaseConnection();
         $registerInstance = new RegisterClass("username", "password", "email@email.com", $databaseInstance->CreateDatabaseConnection());
-        $this->assertTrue(($registerInstance->registerUserInDb()) == FALSE);
+        $this->assertNotTrue(($registerInstance->checkEmailExists()));
     }
 
     public function testRegisterUserInDbEmptyPassword()
     {
         $databaseInstance = new DatabaseConnection();
-        $registerInstance = new RegisterClass("username", "", "emailx@email.com", $databaseInstance->CreateDatabaseConnection());
-        $this->assertTrue(($registerInstance->registerUserInDb()) == TRUE);
+        $registerInstance = new RegisterClass("username", "", "emailxz@email.com", $databaseInstance->CreateDatabaseConnection());
+        $this->assertTrue(($registerInstance->registerUserInDb()));
     }
 }
