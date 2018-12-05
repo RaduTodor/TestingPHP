@@ -5,13 +5,13 @@ namespace App\classes;
 use PDO;
 
 class AuthenticateClass { 
-    private $username; 
+    private $email;
     private $password;
     private $pdo;
 
-    function __CONSTRUCT(string $username, string $password, PDO $pdo)
+    function __CONSTRUCT(string $email, string $password, PDO $pdo)
     {
-        $this->username = $username;
+        $this->email = $email;
         $this->password = $password;
         $this->pdo = $pdo;
     }
@@ -19,9 +19,9 @@ class AuthenticateClass {
     function initializeSession(array $result)
     {
         session_start();
-        $_SESSION["username"]=$this->username;
+        $_SESSION["username"]=$result["username"];
         $_SESSION["id"] = $result["id"];
-        $_SESSION["email"]=$result["email"];
+        $_SESSION["email"]=$this->email;
         $_SESSION["birth_date"]=$result["birth_date"];
         $_SESSION["last_name"]=$result["last_name"];
         $_SESSION["first_name"]=$result["first_name"];
@@ -30,9 +30,9 @@ class AuthenticateClass {
 
     function authenticateUser()
     {
-        $sql="SELECT * FROM users WHERE username = (?)";
+        $sql="SELECT * FROM users WHERE email = (?)";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$this->username]);
+        $stmt->execute([$this->email]);
         $result = $stmt->fetch();
         if($result)
         {
@@ -53,6 +53,7 @@ class AuthenticateClass {
         }
         else
         {
+            $_SESSION["wrong_password_alert_message"] = "The email or password is wrong!";
             header("Location: /login");
         }
     }

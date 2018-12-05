@@ -22,7 +22,7 @@ class LoginController
     }
 
     public function loginAuthAction(array $params, array $query) {
-        $authenticateInstance = new AuthenticateClass($params["username"],$params["password"],$this->pdo);
+        $authenticateInstance = new AuthenticateClass($params["email"],$params["password"],$this->pdo);
         $authentificationResult = $authenticateInstance->authenticateUser();
         $authenticateInstance->redirectAuthenticationForm($authentificationResult);
         // /login/auth
@@ -36,8 +36,13 @@ class LoginController
 
     public function registerAction(array $params, array $query) {
         $registerInstance = new RegisterClass($params["username"],$params["password"],$params["email"],$this->pdo);
-        $registerInstance->registerUserInDb();
-        $registerInstance->callAutoLogin();
+        if($registerInstance->registerUserInDb()) {
+            $registerInstance->callAutoLogin();
+        }
+        else{
+            $_SESSION["register_alert_message"] = "Email is already used!";
+            header("Location: /login");
+        }
         // /register
     }
 }

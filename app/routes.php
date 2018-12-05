@@ -13,7 +13,7 @@ $static_routes = [
                                 'params'     => [/*empty*/]],
     '/login/auth/'          => ['controller' => 'LoginController',
                                 'action'     => 'loginAuthAction',
-                                'params'     => ['username', 'password']],
+                                'params'     => ['email', 'password']],
     '/logout/'              => ['controller' => 'LoginController',
                                 'action'     => 'logoutAction',
                                 'params'     => [/*empty*/]],

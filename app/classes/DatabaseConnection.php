@@ -5,9 +5,9 @@ namespace App\classes;
 use PDO;
 
 Class DatabaseConnection{
-    function CreateDatabaseConnection()
+    function CreateDatabaseConnection(string $databaseName = "unitbv_php_testing_project")
     {
-        $dsn="mysql:host=localhost;dbname=unitbv_php_testing_project;charset=utf8mb4";
+        $dsn="mysql:host=localhost;dbname=".$databaseName.";charset=utf8mb4";
         $options = [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
