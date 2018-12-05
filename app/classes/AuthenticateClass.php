@@ -18,7 +18,6 @@ class AuthenticateClass {
 
     function initializeSession(array $result)
     {
-        session_start();
         $_SESSION["username"]=$result["username"];
         $_SESSION["id"] = $result["id"];
         $_SESSION["email"]=$this->email;
@@ -34,6 +33,7 @@ class AuthenticateClass {
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$this->email]);
         $result = $stmt->fetch();
+        session_start();
         if($result)
         {
             if(password_verify($this->password, $result["password"]))

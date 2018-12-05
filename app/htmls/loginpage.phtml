@@ -7,13 +7,14 @@
 <script src="/js/index.js"></script>
 
 <?php
+    session_start();
     if (isset($_SESSION['register_alert_message'])) {
-        echo ("<script>alert({$_SESSION['wrong_password_alert_message']})</script>");
+        echo ("<script>alert('{$_SESSION['register_alert_message']}')</script>");
         unset($_SESSION['register_alert_message']);
     }
     
     else if (isset($_SESSION['wrong_password_alert_message'])) {
-        echo ("<script>alert({$_SESSION['wrong_password_alert_message']})</script>");
+        echo ("<script>alert('{$_SESSION['wrong_password_alert_message']}');</script>");
         unset($_SESSION['wrong_password_alert_message']);
     }
 ?>

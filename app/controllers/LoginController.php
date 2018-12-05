@@ -40,6 +40,7 @@ class LoginController
             $registerInstance->callAutoLogin();
         }
         else{
+            session_start();
             $_SESSION["register_alert_message"] = "Email is already used!";
             header("Location: /login");
         }
