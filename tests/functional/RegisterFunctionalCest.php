@@ -1,19 +1,15 @@
 <?php
 
-use Testing\DBTools;
 use Testing\TestTools;
 
 class RegisterFunctionalCest
 {
     public function testRegister(FunctionalTester $I)
     {
-        $dbConn = new DBTools();
+        // Functional test
         $testTool = new TestTools();
-        if ($dbConn->isEmailPresent('test@test.com'))
-        {
-            $dbConn->deleteAccount('test@test.com');
-            //$testTool->clean('test@test.com');
-        }
+        $testTool->clean('test@test.com');
+
 
         $I->amOnPage('/login');
         $I->submitForm('form#register-form',
@@ -27,7 +23,6 @@ class RegisterFunctionalCest
 
         $I->click('login-submit');
 
-        $dbConn->deleteAccount('test@test.com');
-        //$testTool->clean('test@test.com');
+        $testTool->clean('test@test.com');
     }
 }

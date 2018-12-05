@@ -23,7 +23,7 @@ class LoginFunctionalCest
 
     public function testLogin2(FunctionalTester $I)
     {
-        // Integration
+        // Integration test
         $testTool = new TestTools();
         $testTool->prepareFull('test@test.com', 'password', 'test',
             'first_name', 'last_name', '2018-12-14', 'male');

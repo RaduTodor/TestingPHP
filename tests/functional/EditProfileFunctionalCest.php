@@ -6,6 +6,7 @@ class EditProfileFunctionalCest
 {
     public function editProfileTest(FunctionalTester $I)
     {
+        // Integration test
         $testTool = new TestTools();
         $testTool->prepareFull('test@test.com', 'password', 'test',
             'first_name', 'last_name', '2018-04-12', 'male');
